@@ -9,6 +9,7 @@ function App() {
       },
     ]);
     ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Custom Title" });
+    console.log("analysics add")
   }, []);
 
   // Send pageview with a custom path
