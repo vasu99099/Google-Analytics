@@ -2,7 +2,8 @@ name: 'My Workflow'
 
 on:
   push:
-    types: [published]
+     branches:
+      - main
 
 jobs:
   deploy:
