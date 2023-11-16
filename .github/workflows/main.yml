@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     name: 'Deploy to Netlify'
     steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: yarn install and build
+        run: |
+         npm install
+         npm build
       - uses: jsmrcaga/action-netlify-deploy@v2.0.0
         with:
           NETLIFY_AUTH_TOKEN: nfp_PfFVFfh8ZWqy3rnWm89mmARNZTjTRpKs7599
