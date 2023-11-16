@@ -1,25 +1,15 @@
-name: Build and Deploy React App
+name: 'My Workflow'
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
+    name: 'Deploy to Netlify'
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build
+      - uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        with:
+          NETLIFY_AUTH_TOKEN: nfp_PfFVFfh8ZWqy3rnWm89mmARNZTjTRpKs7599
+          NETLIFY_DEPLOY_TO_PROD: true
